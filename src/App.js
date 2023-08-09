@@ -12,6 +12,7 @@ import FavoriteMovieList from "./components/FavoriteMovieList";
 import axios from "axios";
 import { MovieContext } from "./components/MovieContext";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import AddMovieForm from "./components/AddMovieForm";
 
 const App = (props) => {
   const [movies, setMovies] = useState([]);
@@ -62,6 +63,10 @@ const App = (props) => {
             <Switch>
               <Route path="/movies/edit/:id">
                 <EditMovieForm />
+              </Route>
+
+              <Route path="/movies/add">
+                <AddMovieForm />
               </Route>
 
               <Route path="/movies/:id">
