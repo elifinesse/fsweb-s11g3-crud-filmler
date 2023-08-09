@@ -30,8 +30,15 @@ const App = (props) => {
   }, []);
 
   const deleteMovie = (id) => {
-    setMovies(movies.filter((movie) => movie.id !== id));
-    push("/movies");
+    axios
+      .delete(`http://localhost:9000/api/movies/${id}`)
+      .then((res) => {
+        setMovies(res.data);
+        push("/movies/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const addToFavorites = (movie) => {
